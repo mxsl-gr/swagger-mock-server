@@ -28,7 +28,6 @@ const addRoute = (apiPath, method, info) => {
   const responseMap = buildResponseMap(responses)
   app[method](apiPath, (req, res) => {
     const code = req.query['__code']
-    console.log(code, responseMap)
     if (code && responseMap[code]) {
       res.send(responseMap[code])
     } else {
@@ -43,7 +42,6 @@ const buildResponseMap = (responses) => {
     if (response.schema) {
       requireAllProperties(response.schema);
       const data = await jsf(response.schema)
-      console.log(data)
       responseMap[code] = data
     }
   })
