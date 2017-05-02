@@ -1,0 +1,33 @@
+{
+  "name": "swagger-mock-server",
+  "version": "0.0.1",
+  "description": "A mocked server based on Swagger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxsl-gr/swagger-mock-server.git"
+  },
+  "keywords": [
+    "mock",
+    "swagger",
+    "api",
+    "swagger-mock",
+    "mock-server",
+    "server"
+  ],
+  "author": "mxsl.gr@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mxsl-gr/swagger-mock-server/issues"
+  },
+  "homepage": "https://github.com/mxsl-gr/swagger-mock-server#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "json-schema-faker": "^0.5.0-rc1",
+    "lodash": "^4.17.4",
+    "swagger-parser": "^3.4.1"
+  }
+}
