@@ -6,14 +6,6 @@ const { forEach } = require('lodash')
 const app = express();
 const paramUrlRegex = /\{([^\{]*)\}/g
 
-const doMockServer = async (path) => {
-  let swaggerDoc = await SwaggerParser.parse(path)
-  swaggerDoc = await SwaggerParser.dereference(swaggerDoc)
-  mocking(swaggerDoc)
-  app.listen(3000)
-  console.log('pampas api mocker started, listen on 3000')
-}
-
 const mocking = (swaggerDoc) => {
   forEach(swaggerDoc.paths, (methods, path) => {
     const apiPath = path.replace(paramUrlRegex, ':$1')
@@ -60,4 +52,12 @@ function requireAllProperties(definition) {
   }
 }
 
-doMockServer('./examples/swagger.json')
+const MockServer = async (swaggerFilePath, port = 3000) => {
+  let swaggerDoc = await SwaggerParser.parse(swaggerFilePath)
+  swaggerDoc = await SwaggerParser.dereference(swaggerDoc)
+  mocking(swaggerDoc)
+  app.listen(port)
+  console.log(`pampas api mocker started, listen on ${port}`)
+}
+
+module.exports = MockServer

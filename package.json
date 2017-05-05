@@ -1,5 +1,5 @@
 {
-  "name": "swagger-mock-server",
+  "name": "mock-server-swagger",
   "version": "0.0.1",
   "description": "A mocked server based on Swagger",
   "main": "index.js",
